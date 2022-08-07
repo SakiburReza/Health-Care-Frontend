@@ -1,9 +1,36 @@
-import { Grid, Typography, Rating, Stack, Button } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Rating,
+  Stack,
+  Button,
+  TextField,
+} from "@mui/material";
+import { Appointment, Doctor, Patient } from "Classes/entity-class";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import React from "react";
+import { DatePicker } from "@mui/x-date-pickers";
+import Basic_Structure from "components/Patient/basic-navigation-bar";
+import PatientLayout from "components/Patient/patient-layout";
 
-export function DoctorDetails_Get_Appointment() {
+export function DoctorDetails_Get_Appointment({ doctor }: { doctor: Doctor }) {
   const navigate = useNavigate();
+  const [appointment, setAppointmet] = React.useState<Appointment>(
+    new Appointment()
+  );
+
+  useEffect(() => {
+    //Data will be loaded first time only
+    setAppointmet({
+      ...appointment,
+      doctor: doctor,
+      patient: JSON.parse(localStorage.getItem("Patient") || "") as Patient,
+    });
+  }, [doctor]);
+
   return (
+    <PatientLayout>
     <Grid
       container
       direction="row"
@@ -12,6 +39,7 @@ export function DoctorDetails_Get_Appointment() {
       sx={{ padding: "10px", height: "100%" }}
       spacing={2}
     >
+  
       {/* Picture */}
       <Grid item>
         <img src={require("../../images/doctor.jpg")} height="150px" />
@@ -36,7 +64,7 @@ export function DoctorDetails_Get_Appointment() {
           >
             <Grid item>
               <Typography sx={{ fontWeight: "bold" }}>
-                Dr. Faysal Rana
+                {doctor.person?.firstName + " " + doctor.person?.lastName}
               </Typography>
             </Grid>
             <Grid item>
@@ -56,7 +84,7 @@ export function DoctorDetails_Get_Appointment() {
               <Typography sx={{ fontWeight: "bold" }}>Specialities</Typography>
             </Grid>
             <Grid item>
-              <Typography>Medicine</Typography>
+              <Typography>{doctor.speciality?.name}</Typography>
             </Grid>
           </Grid>
         </Grid>
@@ -83,7 +111,7 @@ export function DoctorDetails_Get_Appointment() {
               <Typography sx={{ fontWeight: "bold" }}>Chamber</Typography>
             </Grid>
             <Grid item>
-              <Typography>xyz</Typography>
+              <Typography>{doctor.chamber}</Typography>
             </Grid>
           </Grid>
 
@@ -110,7 +138,7 @@ export function DoctorDetails_Get_Appointment() {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Typography>3 Years</Typography>
+                  <Typography>{doctor.experience} Years</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -154,29 +182,37 @@ export function DoctorDetails_Get_Appointment() {
           spacing={2}
         >
           <Grid item>
-            <Grid
-              container
-              direction="column"
-              alignItems="center"
-              justifyContent="space-between"
-              sx={{ padding: "10px", height: "100%" }}
-              spacing={2}
-            >
-              <Grid item>
-                <Typography>Fee:</Typography>
-              </Grid>
-              <Grid item>
-                <Typography>500</Typography>
-              </Grid>
-            </Grid>
+            <Typography>Fee: {doctor.fee}</Typography>
           </Grid>
           <Grid item>
-            <Button onClick={()=>navigate("/set-appointment-details")} variant="contained" color="success">
+            <DatePicker
+              label="Select an appointment date"
+              value={appointment?.date}
+              onChange={(newValue) => {
+                setAppointmet({
+                  ...appointment,
+                  date: newValue || undefined,
+                });
+              }}
+              renderInput={(params) => (
+                <TextField required fullWidth {...params} />
+              )}
+            />
+          </Grid>
+          <Grid item>
+            <Button
+              onClick={() =>
+                navigate("/set-appointment-details", { state: appointment })
+              }
+              variant="contained"
+              color="success"
+            >
               Get appointment
             </Button>
           </Grid>
         </Grid>
       </Grid>
     </Grid>
+    </PatientLayout>
   );
 }

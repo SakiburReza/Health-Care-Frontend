@@ -10,8 +10,9 @@ import {
   Typography,
 } from "@mui/material";
 import { API } from "API Handler/api";
-import { Speciality } from "Classes/patient-class";
+import { Speciality } from "Classes/entity-class";
 import Header from "components/header";
+import PatientLayout from "components/Patient/patient-layout";
 import SearchBar from "components/search-bar";
 import SpecialityCard from "components/speciality-card";
 import React, { useEffect } from "react";
@@ -37,31 +38,23 @@ export function SpecialitiesUI() {
   
 
   return (
+    <PatientLayout>
     <Grid container spacing={2} sx={{ backgroundColor: "gray" }}>
-      <Grid item>
-        <Header />
-      </Grid>
+     
       <Grid item>
         <Grid container spacing={2}>
           {state?.map((speciality, idx) => (
             <Grid key={idx} item xs={12} sm={6} md={4} lg={3} xl={2}>
                
               <SpecialityCard 
-                title={speciality.name}
-                description={speciality.description}
-                image={require("./images/heaa.jpg")}
-              />
+                spec={speciality} />
           
             </Grid>
           ))}
         </Grid>
       </Grid>
 
-      {/* {<ButtonGroup variant="contained" aria-label="outlined primary button group">
-      <Button size="large">Medicine/General Physician</Button>
-      <Button >Two</Button>
-      <Button>Three</Button>
-    </ButtonGroup>} */}
     </Grid>
+    </PatientLayout>
   );
 }
