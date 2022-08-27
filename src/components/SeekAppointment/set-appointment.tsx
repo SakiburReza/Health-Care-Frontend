@@ -74,8 +74,8 @@ export default function SetAppointment() {
       API.notification.saveNotification({
         ...notification,
         receiver: _appointment?.doctor?.person,
-        type: "appointment",
-        message: "Your have a pending appointment",
+        type: "New Appointment Request",
+        message: "From Patient: "+_appointment.patient?.person?.firstName +" "+ _appointment.patient?.person?.lastName +". Problem : "+ _appointment.problem ,
         status: "pending",
       }).then((response) => {
         console.log("Notification placed");

@@ -133,7 +133,10 @@ const ResponsiveAppBar = () => {
               <Button  sx={{ my: 2, color: 'white', display: 'block' }}  onClick={()=>navigate("/requested-appointment-ui")} variant="contained">Pending-Appointment</Button>
               <Button sx={{ my: 2, color: 'white', display: 'block' }}  onClick={()=>navigate("/approved-appointment-list")} variant="contained">MyPatient</Button>
               <Button sx={{ my: 2, color: 'white', display: 'block' }}  onClick={()=>navigate("/set-visiting-time")} variant="contained">Set Visiting Time</Button>
-              <ShowNotification id = {doctor_id as number}/>
+              {/* <ShowNotification id = {doctor_id as number}/> */}
+              <Button  onClick={() => navigate("")} variant="contained"> 
+              Notification <ShowNotification id = {doctor_id as number} />
+              </Button>
           </Box>
      
 
