@@ -18,8 +18,8 @@ export default function FindDCCard({text} : {text:string}) {
     <CardActionArea>
       <CardMedia
         component="img"
-        height="140"
-        image={require("./images/heaa.jpg")}
+        height="240"
+        image={require("./images/dc2.jpg")}
         alt="green iguana"
       />
       <CardContent>

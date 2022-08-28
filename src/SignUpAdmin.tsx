@@ -226,10 +226,10 @@ export default function SignUpAdmin() {
     
               <Grid item xs={12}>
                 <TextField
-                  name="pathology_resgistration_no"
+                  name="dcName"
                   required
                   fullWidth
-                  id="pathology_resgistration_no"
+                  id="dcName"
                   label="DC Name"
                   onChange={(event) => {
                     
@@ -240,10 +240,9 @@ export default function SignUpAdmin() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  name="pathology_resgistration_no"
                   required
                   fullWidth
-                  id="pathology_resgistration_no"
+                  id="dcLocation"
                   label="DC Location"
                   onChange={(event) => {
                     

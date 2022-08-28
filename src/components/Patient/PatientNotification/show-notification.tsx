@@ -5,6 +5,7 @@ import { Patient, _Notification } from "Classes/entity-class";
 import React, { useEffect } from "react";
 import NotificationList from "./notification-list";
 
+
 export default function ShowNotification({id}:{id:number}) {
   const [notification, setNotification] = React.useState<_Notification[]>([]);
   const [notify, setNotify] = React.useState<_Notification>();
@@ -50,9 +51,7 @@ export default function ShowNotification({id}:{id:number}) {
      <DialogTitle>Notification</DialogTitle>
      <List sx={{ pt: 0 }}>
         {notification?.map((notify,idx) => (
-        <ListItem key={idx}>
-           <ListItemText primary={notify.message} />
-         </ListItem>          
+        <NotificationList notification = {notify} />      
        ))} 
      </List> 
    </Dialog>

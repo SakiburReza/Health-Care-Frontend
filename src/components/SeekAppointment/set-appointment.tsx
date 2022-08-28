@@ -80,7 +80,7 @@ export default function SetAppointment() {
       }).then((response) => {
         console.log("Notification placed");
       });
-      API.patient.updatePatientByHeightWeight(_appointment.patient as Patient)
+      //API.patient.updatePatientByHeightWeight(_appointment.patient as Patient)
     }
   };
 

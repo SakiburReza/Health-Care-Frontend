@@ -41,7 +41,7 @@ export function DoctorDetails({ doctor }: { doctor: Doctor }) {
               </Typography>
             </Grid>
             <Grid item>
-              <Typography>MBBS</Typography>
+              <Typography>{doctor?.degree}</Typography>
             </Grid>
           </Grid>
 

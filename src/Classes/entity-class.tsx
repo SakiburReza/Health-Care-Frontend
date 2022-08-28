@@ -27,7 +27,7 @@ export class Doctor{
     person?: Person;
     experience?:number;
     fee?:number;
-    degree?:number;
+    degree?:string;
     visitingDay?:string;
     visitingTime?:string;
 
