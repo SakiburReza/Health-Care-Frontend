@@ -39,7 +39,7 @@ export function SpecialitiesUI() {
 
   return (
     <PatientLayout>
-    <Grid container spacing={2} sx={{ backgroundColor: "gray" }}>
+    <Grid container spacing={2} sx={{ }}>
      
       <Grid item>
         <Grid container spacing={2}>

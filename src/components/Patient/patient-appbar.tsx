@@ -75,7 +75,7 @@ export default function PatientAppbar() {
           >
           
             <Grid item>
-              <Button >Profile</Button>
+              <Button onClick={()=>navigate("/patient-home-page")}>Home</Button>
             </Grid>
             <Grid item>
               <ShowNotification id = {patient_id as number} />

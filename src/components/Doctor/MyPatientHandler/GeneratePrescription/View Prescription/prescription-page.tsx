@@ -16,6 +16,7 @@ import {
   MC_Prescription,
   Patient,
   Test_Prescription,
+  _Notification,
 } from "Classes/entity-class";
 import { useEffect } from "react";
 import { GeneratePrescription } from "Classes/helper-class";
@@ -26,15 +27,18 @@ import TestInPrescription from "./test-in-prescription";
 import jsPDF from "jspdf";
 import html2canvas from 'html2canvas';
 import { API } from "API Handler/api";
+import React from "react";
 
 export default function PrescriptionPage() {
   const { state } = useLocation();
+  const [notification,setNotification] = React.useState<_Notification>();
   const navigate = useNavigate();
   let generatePrescription: GeneratePrescription =
     state as GeneratePrescription;
  
     const exportPDF = () => {
       const input = document.getElementById("prescription")
+
       
        html2canvas(input as HTMLElement, {logging:true,  useCORS:true, scale: 2}).then(canvas =>{
           const imgWidth = 208; //default 208
@@ -44,6 +48,16 @@ export default function PrescriptionPage() {
           pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
           pdf.save("Prescription_PDF.pdf") 
       }) 
+
+      API.notification.saveNotification({
+        ...notification,
+        receiver: generatePrescription?.patient?.person,
+        type: "Recent Prescription Uploaded",
+        message: "From Doctor: "+generatePrescription?.doctor?.person?.firstName +" "+ generatePrescription?.doctor?.person?.lastName+ "("+generatePrescription?.doctor?.person?.mobileNo+")",
+        status: "pending",
+      }).then((response) => {
+        console.log("Notification placed");
+      });
    
   }
   return (

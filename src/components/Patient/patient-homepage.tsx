@@ -2,10 +2,11 @@ import { Button, Grid, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 import PatientAppbar from "./patient-appbar";
-import BasicCard from "components/basic-card";
+
 import PatientLayout from "./patient-layout";
 import FindDCCard from "./FindDC/FindDCCard";
 import ShowLabReport from "./LabReport/show-lab-report";
+import BasicCard from "./MedicalHistory/basic-card";
 
 export default function Patient_Home_Page() {
   const navigate = useNavigate();

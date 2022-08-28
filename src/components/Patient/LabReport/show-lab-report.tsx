@@ -19,7 +19,7 @@ export default function ShowLabReport({text} : {text:string}) {
       <CardMedia
         component="img"
         height="140"
-        image={require("./images/heaa.jpg")}
+        image={require("./images/lab_report.jpg")}
         alt="green iguana"
       />
       <CardContent>
