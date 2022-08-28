@@ -41,12 +41,12 @@ export default function ReportPage() {
                 sx={{ backgroundColor: "white", padding: "80px", height: "2000%" }}
                 spacing={2}
             >
-                <Grid item > 
+                <Grid item >
 
                     <Typography sx={{ fontWeight: "bold" }} > Report </Typography>
+                    {/* <img src={dc_test_info.report} height="500px" /> */}
+                    <object data={dc_test_info.report} type="application/pdf" width="1000" height="1000" >
 
-                    <img src="demo.pdf" height="500px" />
-                    <object data="demo.pdf" type="application/pdf" width="1000" height="1000" >
                     </object>
 
                 </Grid>
@@ -77,6 +77,4 @@ export default function ReportPage() {
         </>
 
     );
-
 }
-

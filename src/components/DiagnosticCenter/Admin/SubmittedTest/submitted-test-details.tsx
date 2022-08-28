@@ -25,7 +25,7 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
       navigate("/submitted-test-list-ui")
     });
 
-    window.location.reload();
+    // window.location.reload();
 
     setNotification({
       ...notification,
