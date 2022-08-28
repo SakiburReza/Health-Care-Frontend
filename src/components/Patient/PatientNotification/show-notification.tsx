@@ -50,12 +50,9 @@ export default function ShowNotification({id}:{id:number}) {
      <DialogTitle>Notification</DialogTitle>
      <List sx={{ pt: 0 }}>
         {notification?.map((notify,idx) => (
-        <>
-        {/* <ListItem key={idx}>
+        <ListItem key={idx}>
            <ListItemText primary={notify.message} />
-         </ListItem> */}
-         <NotificationList notification = {notify} />             
-        </>
+         </ListItem>          
        ))} 
      </List> 
    </Dialog>
