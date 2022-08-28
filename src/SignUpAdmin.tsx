@@ -111,9 +111,15 @@ export default function SignUpAdmin() {
              id : response.data.id,
             })
           );
+
+          localStorage.setItem(
+                    "DCAdminId",
+                    JSON.stringify(
+                      response.data?.person?.id
+                    )
+                  );
             navigate("/dc-admin-home-page")
            });
-
   };
 
   return (

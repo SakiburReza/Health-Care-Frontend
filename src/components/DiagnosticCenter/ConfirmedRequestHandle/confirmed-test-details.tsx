@@ -20,7 +20,7 @@ export function ConfirmedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
   useEffect(() => {
     const id = (JSON.parse(localStorage.getItem("Taker") || "") as Taker).id;
     console.log("idd: ", id);
-  }, []);
+  }, [dc_test_info]);
 
   const handleComplete = (e) => {
     e.preventDefault();
