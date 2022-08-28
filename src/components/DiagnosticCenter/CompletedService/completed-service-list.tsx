@@ -26,7 +26,7 @@ export default function CompletedServiceListUI() {
     console.log("No item here .")
    }
     setDCTestList(response.data)
-    console.log("db theke asche")
+    console.log("all completed serviced data")
     console.log(response.data)
     
   });

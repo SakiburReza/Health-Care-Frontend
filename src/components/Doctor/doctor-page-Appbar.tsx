@@ -16,9 +16,7 @@ import FixedBottomNavigation from 'components/Doctor/doctor-homepage-container'
 import { useNavigate } from 'react-router-dom';
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import { Doctor } from 'Classes/entity-class';
-import ShowNotification from 'components/Patient/PatientNotification/show-notification';
-
-
+import ShowNotification from './DoctorNotification/show-notification';
 
 const pages = ['Monitor', 'About', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -135,7 +133,10 @@ const ResponsiveAppBar = () => {
               <Button  sx={{ my: 2, color: 'white', display: 'block' }}  onClick={()=>navigate("/requested-appointment-ui")} variant="contained">Pending-Appointment</Button>
               <Button sx={{ my: 2, color: 'white', display: 'block' }}  onClick={()=>navigate("/approved-appointment-list")} variant="contained">MyPatient</Button>
               <Button sx={{ my: 2, color: 'white', display: 'block' }}  onClick={()=>navigate("/set-visiting-time")} variant="contained">Set Visiting Time</Button>
-              <ShowNotification id = {doctor_id as number}/>
+              {/* <ShowNotification id = {doctor_id as number}/> */}
+              <Button  onClick={() => navigate("")} variant="contained"> 
+              Notification <ShowNotification id = {doctor_id as number} />
+              </Button>
           </Box>
      
 

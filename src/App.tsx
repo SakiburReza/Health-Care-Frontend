@@ -61,57 +61,59 @@ function App() {
       <SnackbarProvider>
         <BrowserRouter>
           <Routes>
-          <Route path="/" element={<SignIn />} />
+            <Route path="/" element={<SignIn />} />
             <Route path="/patient-home-page" element={<Patient_Home_Page />} />
             <Route path="/specialities" element={<SpecialitiesUI />} />
             <Route path="/doctor-list" element={<DoctorListUI />} />
             <Route path="/doctor-info" element={<DoctorInfo />} />
-            <Route path="/doctor-home-page" element={<DoctorHomePage/>} />
+            <Route path="/doctor-home-page" element={<DoctorHomePage />} />
             <Route path="/sign-up-patient" element={<SignUpPatient />} />
             <Route path="/sign-up-doctor" element={<SignUpDoctor />} />
-            <Route path="/medical-history" element={<MedicalHistory /> }/>
-           
-          <Route path="/set-appointment-details" element={<SetAppointment />}/>
-          <Route path="/requested-appointment-ui" element={<RequestedAppointmentListUI/>}/>
-          <Route path="/set-appointment-info" element={<SetAppointmentInfo/>}/>
-          <Route path="/set-visiting-time" element={<VisitingTime/>}/>
-          <Route path="/approved-appointment-list" element={<ApprovedAppointmentList/>}/>
-          <Route path="/set-see-patient-info" element={<SetSeePatientInfo/>}/>   
-          <Route path ="/selection-approved-appointment" element={<ContentSelectedApprovedAppointment/>}/>
-          <Route path="/selection-prescription" element={<SelectionPrescription/>}/>  
-           <Route path="/prescription-list-ui" element={<PrescriptionListUI/>}/>  
-           <Route path="/prescription-page" element={<PrescriptionPage/>}/> 
-           <Route path="/prescription-page-patient-side" element={<PrescriptionPageInPatient/>}/> 
-           <Route path="/set-prescription-info" element={<SetPrescriptionInfo/>}/> 
+            <Route path="/medical-history" element={<MedicalHistory />} />
 
-           <Route path="/requested-test-list-ui" element={<RequestedTestListUI/>}/> 
-           <Route path="/set-test-info" element={<SetTestInfo/>}/> 
-           <Route path="/selection-test" element={<SelectionTest/>}/> 
-           <Route path="/dc-home-page" element={<DCHomePage/>}/> 
+            <Route path="/set-appointment-details" element={<SetAppointment />} />
+            <Route path="/requested-appointment-ui" element={<RequestedAppointmentListUI />} />
+            <Route path="/set-appointment-info" element={<SetAppointmentInfo />} />
+            <Route path="/set-visiting-time" element={<VisitingTime />} />
+            <Route path="/approved-appointment-list" element={<ApprovedAppointmentList />} />
+            <Route path="/set-see-patient-info" element={<SetSeePatientInfo />} />
+            <Route path="/selection-approved-appointment" element={<ContentSelectedApprovedAppointment />} />
+            <Route path="/selection-prescription" element={<SelectionPrescription />} />
+            <Route path="/prescription-list-ui" element={<PrescriptionListUI />} />
+            <Route path="/prescription-page" element={<PrescriptionPage />} />
+            <Route path="/prescription-page-patient-side" element={<PrescriptionPageInPatient />} />
+            <Route path="/set-prescription-info" element={<SetPrescriptionInfo />} />
 
-           <Route path="/confirmed-test-list-ui" element={<ConfirmedTestListUI/>}/> 
-           <Route path="/selection-confirmed-test" element={<SelectionConfirmedTest/>}/> 
-           <Route path="/sign-up-taker" element={<SignUpTaker/>}/> 
+            <Route path="/requested-test-list-ui" element={<RequestedTestListUI />} />
+            <Route path="/set-test-info" element={<SetTestInfo />} />
+            <Route path="/selection-test" element={<SelectionTest />} />
+            <Route path="/dc-home-page" element={<DCHomePage />} />
 
-           <Route path="/sign-up-admin" element={<SignUpAdmin/>}/> 
-           <Route path="/dc-admin-home-page" element={<DCAdminHomePage/>}/> 
-           <Route path="/submitted-test-list-ui" element={<SubmittedTestListUI/>}/>
-           <Route path="/offsite-requested-test-list-ui" element={<OffsiteRequestedTestListUI/>}/>
-           <Route path="/all-dc-list-ui" element={<AllDCListUI/>}/> 
-           <Route path="/test-list-ui" element={<TestListUI/>}/>
+            <Route path="/confirmed-test-list-ui" element={<ConfirmedTestListUI />} />
+            <Route path="/selection-confirmed-test" element={<SelectionConfirmedTest />} />
+            <Route path="/sign-up-taker" element={<SignUpTaker />} />
 
-           //Find DC 
-           {/* <Route path="/set-info" element={<SetInfo/>}/>  */}
-           <Route path="/set-dc-appointment" element={<SetDCAppointment/>}/> 
-           <Route path="/previous-page-set-info" element={<PreviousPageSetInfo/>}/> 
-           <Route path="/dc-list-by-testname" element={<DCListByTestname/>}/>
-           <Route path="/dc-search-page" element={<DCSearchPage/>}/>
-           <Route path="/upload-page" element={<UploadPage/>}/> 
-           <Route path="/pending-ack-test-list-ui" element={<PendingACKListUI/>}/>   
-           <Route path="/completed-service-list-ui" element={<CompletedServiceListUI/>}/>   
-           <Route path="/lab-report-list-ui" element={<LabReportListUI/>}/>     
-           <Route path="/report-page" element={<ReportPage/>}/>        
-           
+            <Route path="/sign-up-admin" element={<SignUpAdmin />} />
+            <Route path="/dc-admin-home-page" element={<DCAdminHomePage />} />
+            <Route path="/submitted-test-list-ui" element={<SubmittedTestListUI />} />
+            <Route path="/offsite-requested-test-list-ui" element={<OffsiteRequestedTestListUI />} />
+            <Route path="/all-dc-list-ui" element={<AllDCListUI />} />
+            <Route path="/test-list-ui" element={<TestListUI />} />
+
+           //Find DC
+            {/* <Route path="/set-info" element={<SetInfo/>}/>  */}
+            <Route path="/set-dc-appointment" element={<SetDCAppointment />} />
+
+            <Route path="/previous-page-set-info" element={<PreviousPageSetInfo />} />
+            <Route path="/dc-list-by-testname" element={<DCListByTestname />} />
+            <Route path="/dc-search-page" element={<DCSearchPage />} />
+            <Route path="/upload-page" element={<UploadPage />} />
+
+            <Route path="/pending-ack-test-list-ui" element={<PendingACKListUI />} />
+            <Route path="/completed-service-list-ui" element={<CompletedServiceListUI />} />
+            <Route path="/report-page" element={<ReportPage />} />
+            <Route path="/lab-report-list-ui" element={<LabReportListUI />} />
+
           </Routes>
         </BrowserRouter>
       </SnackbarProvider>
