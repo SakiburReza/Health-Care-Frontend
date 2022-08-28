@@ -25,8 +25,6 @@ export default function ApprovedAppointmentListUI() {
 
   return (
     <DoctorLayout>
- 
-      <Grid item>
         <Grid
           container
           direction="column"
@@ -45,7 +43,6 @@ export default function ApprovedAppointmentListUI() {
             </Grid>
           ))}
         </Grid>
-      </Grid>
     </DoctorLayout>
 
 

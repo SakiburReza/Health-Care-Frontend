@@ -1,8 +1,5 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import React from "react";
-import PatientAppbar from "./patient-appbar";
-
 import PatientLayout from "./patient-layout";
 import FindDCCard from "./FindDC/FindDCCard";
 import ShowLabReport from "./LabReport/show-lab-report";

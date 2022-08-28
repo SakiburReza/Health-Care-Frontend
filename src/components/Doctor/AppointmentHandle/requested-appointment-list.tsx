@@ -1,8 +1,5 @@
 import { Button, Grid, Typography } from "@mui/material";
-import Header from "components/header";
-import { Link } from "react-router-dom";
 import AppointmentListCard from "./appointment-list-card";
-import ResponsiveAppBar from "../doctor-page-Appbar";
 import DoctorLayout from "../doctor-layout";
 import { useEffect } from "react";
 import { API } from "API Handler/api";
@@ -26,13 +23,13 @@ export function RequestedAppointmentListUI() {
   return (
     
    <DoctorLayout>
-      <Grid item>
+     
         <Grid
           container
           direction="column"
           alignItems="center"
           justifyContent="space-between"
-          sx={{  padding: "10px", height: "100%" }}
+          sx={{ padding: "10px", height: "100%" }}
           spacing={5}
         >
           {appointment?.map((appt, idx) => (
@@ -45,7 +42,7 @@ export function RequestedAppointmentListUI() {
             </Grid>
           ))}
         </Grid>
-      </Grid>
+    
     </DoctorLayout>
 
 

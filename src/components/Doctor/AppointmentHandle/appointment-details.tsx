@@ -149,7 +149,7 @@ export function AppointmentDetails({
                   <Typography sx={{ fontWeight: "bold" }}>Height</Typography>
                 </Grid>
                 <Grid item>
-                  <Typography>{patient?.height?.toString()}</Typography>
+                  <Typography>{patient?.height}</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -175,18 +175,6 @@ export function AppointmentDetails({
         </Grid>
       </Grid>
 
-      {/*    //3rd column */}
-      <Grid item>
-        <Grid
-          container
-          direction="column"
-          alignItems="center"
-          justifyContent="space-between"
-          sx={{ padding: "10px", height: "100%" }}
-          spacing={2}
-        >
-        </Grid>
-      </Grid>
     </Grid>
   );
 }

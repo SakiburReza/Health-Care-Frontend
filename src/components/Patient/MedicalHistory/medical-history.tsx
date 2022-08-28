@@ -62,7 +62,12 @@ export default function MedicalHistory() {
 
   return (
     <PatientLayout>
-      <Grid container spacing={2}>
+      <Grid  container
+          direction="column"
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{  padding: "10px", height: "100%" }}
+          spacing={5}>
       {appointments.map((appt, idx) => (
           <Grid item>
             <MedicalHistoryCard

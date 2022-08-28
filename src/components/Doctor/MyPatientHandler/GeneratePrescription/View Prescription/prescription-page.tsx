@@ -35,11 +35,10 @@ export default function PrescriptionPage() {
   const navigate = useNavigate();
   let generatePrescription: GeneratePrescription =
     state as GeneratePrescription;
- 
+  console.log("Chec:",generatePrescription)
     const exportPDF = () => {
       const input = document.getElementById("prescription")
 
-      
        html2canvas(input as HTMLElement, {logging:true,  useCORS:true, scale: 2}).then(canvas =>{
           const imgWidth = 208; //default 208
           const imgHeight = canvas.height * imgWidth / canvas.width;
@@ -52,7 +51,7 @@ export default function PrescriptionPage() {
       API.notification.saveNotification({
         ...notification,
         receiver: generatePrescription?.patient?.person,
-        type: "Recent Prescription Uploaded",
+        type: "Prescription Uploaded",
         message: "From Doctor: "+generatePrescription?.doctor?.person?.firstName +" "+ generatePrescription?.doctor?.person?.lastName+ "("+generatePrescription?.doctor?.person?.mobileNo+")",
         status: "pending",
       }).then((response) => {
