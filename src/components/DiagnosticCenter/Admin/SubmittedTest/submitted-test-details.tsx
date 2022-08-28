@@ -31,16 +31,16 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Test Report Uploaded",
-      message:  "##  DC : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
+      message: "##  DC : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Test Report Uploaded",
-      message:  "##  DC : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
+      message: "##  DC : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
-      
+
     }).then((response) => {
       console.log(response);
     });
@@ -62,7 +62,7 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
 
   };
 
-  function get_Date(strDate:string) {
+  function get_Date(strDate: string) {
     var date = new Date(strDate);
     var day = date.getDate();
     var month = date.getMonth();
@@ -70,7 +70,7 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
 
     var str = day + "-" + month + "-" + year;
     return str;
-  } 
+  }
 
   //  const handleUpload = (e) => {
   //   e.preventDefault();
@@ -105,105 +105,111 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
           sx={{ padding: "10px", height: "100%" }}
           spacing={2}
         >
-          <Grid item>
-          <Grid
-            container
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-            sx={{ padding: "10px", height: "100%" }}
-            spacing={12}
-          >
-
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-                Patient Name
-              </Typography>
-              <Typography>
-               {dc_test_info.patient?.person?.firstName + " " + dc_test_info.patient?.person?.lastName}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              Patient's Location
-              </Typography>
-
-              <Typography>
-              {dc_test_info.location}
-              </Typography>
-
-            </Grid>
-
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              Date
-              </Typography>
-              <Typography>
-              {get_Date(dc_test_info.date?.toString() as string)}
-              </Typography>
-            </Grid>
-
-
-            <Grid item >
-
-            </Grid>
-
-            <Grid item>
-              <Typography></Typography>
-            </Grid>
-          </Grid>
-          </Grid>
 
           <Grid item>
 
-          <Grid
-            container
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-            sx={{ padding: "10px", height: "100%" }}
-            spacing={11}
-          >
+            <Typography sx={{ color: "", fontWeight: "bold" }} >Test Request ID : {dc_test_info.id}</Typography>
 
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              Test Name
-              </Typography>
-              <Typography>
-              {dc_test_info.dcTestList?.test?.name}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              DC Name
-              </Typography>
+          </Grid>
+          <Grid item>
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ padding: "10px", height: "100%" }}
+              spacing={12}
+            >
 
-              <Typography>
-               {dc_test_info.dcTestList?.dc?.name}
-              </Typography>
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Patient Name
+                </Typography>
+                <Typography>
+                  {dc_test_info.patient?.person?.firstName + " " + dc_test_info.patient?.person?.lastName}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Patient's Location
+                </Typography>
 
-            </Grid>
+                <Typography>
+                  {dc_test_info.location}
+                </Typography>
 
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              Sample Collector
-              </Typography>
-              <Typography>
-              {dc_test_info.taker?.person?.firstName + " " + dc_test_info.taker?.person?.lastName}
-              </Typography>
-            </Grid>
+              </Grid>
+
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Date
+                </Typography>
+                <Typography>
+                  {get_Date(dc_test_info.date?.toString() as string)}
+                </Typography>
+              </Grid>
 
 
-            <Grid item >
+              <Grid item >
 
-            </Grid>
+              </Grid>
 
-            <Grid item>
-              <Typography></Typography>
+              <Grid item>
+                <Typography></Typography>
+              </Grid>
             </Grid>
           </Grid>
+
+          <Grid item>
+
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ padding: "10px", height: "100%" }}
+              spacing={11}
+            >
+
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Test Name
+                </Typography>
+                <Typography>
+                  {dc_test_info.dcTestList?.test?.name}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  DC Name
+                </Typography>
+
+                <Typography>
+                  {dc_test_info.dcTestList?.dc?.name}
+                </Typography>
+
+              </Grid>
+
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Sample Collector
+                </Typography>
+                <Typography>
+                  {dc_test_info.taker?.person?.firstName + " " + dc_test_info.taker?.person?.lastName}
+                </Typography>
+              </Grid>
+
+
+              <Grid item >
+
+              </Grid>
+
+              <Grid item>
+                <Typography></Typography>
+              </Grid>
+            </Grid>
           </Grid>
-    
+
 
           <Grid
             container
@@ -213,8 +219,8 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
             sx={{ padding: "10px", height: "100%" }}
             spacing={2}
           >
-          
-          
+
+
           </Grid>
         </Grid>
       </Grid>
@@ -236,7 +242,7 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
             sx={{ padding: "10px", height: "100%" }}
             spacing={2}
           >
-           
+
 
             <Grid item>
               <Typography></Typography>

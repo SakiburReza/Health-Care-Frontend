@@ -35,7 +35,7 @@ export default function OffsiteRequestedTestListUI() {
       direction="column"
       alignItems="center"
       justifyContent="space-between"
-      sx={{ backgroundColor: "yellow", padding: "10px", height: "100%" }}
+      sx={{ backgroundColor: "gray", padding: "10px", height: "100%" }}
       spacing={2}
     >
  

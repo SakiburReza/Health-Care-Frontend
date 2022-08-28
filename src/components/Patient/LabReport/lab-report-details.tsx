@@ -60,6 +60,13 @@ export  function LabReportDetails({dc_test_info}:{dc_test_info:DC_Test}) {
           sx={{ padding: "10px", height: "100%" }}
           spacing={6}
         >
+            <Grid item>
+
+              <Typography sx={{ color: "", fontWeight: "bold" }} >Test Request ID</Typography>
+              <Typography > {dc_test_info.id} </Typography>
+              
+
+            </Grid>
     
           {/* <Grid item>
             <img src={require("./images/DC.jpg")} height="100px" />

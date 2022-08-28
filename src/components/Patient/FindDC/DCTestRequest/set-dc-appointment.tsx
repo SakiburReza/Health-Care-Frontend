@@ -146,10 +146,10 @@ export default function SetDCAppointment() {
               {activeStep === steps.length ? (
                 <React.Fragment>
                   <Typography variant="h5" gutterBottom>
-                    Thank you for your DC appointment.
+                    Thank you for test request.
                   </Typography>
-                  <Typography variant="subtitle1">
-                    Your DC appointment number is {dc_test.id}.
+                  <Typography variant="h5" sx={{ color: "red",fontWeight: "bold"}} >
+                    Your Test Request ID {"(TRID)"}  is {dc_test.id}. 
                   </Typography>
                 </React.Fragment>
               ) : (

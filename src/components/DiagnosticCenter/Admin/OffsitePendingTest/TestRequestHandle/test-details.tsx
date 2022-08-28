@@ -108,6 +108,12 @@ return(
           sx={{ padding: "10px", height: "100%" }}
           spacing={12}
         >
+
+<Grid item>
+
+<Typography sx={{ color: "", fontWeight: "bold" }} >Test Request ID : {dc_test_info.id}</Typography>
+
+</Grid>
           <Grid item>
             <Typography sx={{ fontWeight: "bold" }}>
               Patient Name

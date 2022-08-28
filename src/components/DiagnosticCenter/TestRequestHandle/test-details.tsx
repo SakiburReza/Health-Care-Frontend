@@ -17,7 +17,7 @@ export function TestDetails({ dc_test_info }: { dc_test_info: DC_Test }) {
   );
   const navigate = useNavigate();
 
-  function get_Date(strDate:string) {
+  function get_Date(strDate: string) {
     var date = new Date(strDate);
     var day = date.getDate();
     var month = date.getMonth();
@@ -26,7 +26,7 @@ export function TestDetails({ dc_test_info }: { dc_test_info: DC_Test }) {
     var str = day + "-" + month + "-" + year;
     return str;
   }
-  {get_Date(dc_test_info.date?.toString() as string)}
+  { get_Date(dc_test_info.date?.toString() as string) }
 
   const handleConfirm = (e) => {
     e.preventDefault();
@@ -55,14 +55,14 @@ export function TestDetails({ dc_test_info }: { dc_test_info: DC_Test }) {
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Remote DC Test is confirmed ",
-      message: "Confirmed By : "+taker_name+" ## Taker's Contact :"+ taker_mobile + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
+      message: "Confirmed By : " + taker_name + " ## Taker's Contact :" + taker_mobile + " ## To : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Remote DC Test is confirmed ",
-      message: "Confirmed By : "+taker_name+" ## Taker's Contact :"+ taker_mobile + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
+      message: "Confirmed By : " + taker_name + " ## Taker's Contact :" + taker_mobile + " ## To : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
     }).then((response) => {
       console.log(response);
@@ -95,6 +95,26 @@ export function TestDetails({ dc_test_info }: { dc_test_info: DC_Test }) {
           sx={{ padding: "10px", height: "100%" }}
           spacing={2}
         >
+
+          <Grid item>
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ padding: "10px", height: "100%" }}
+              spacing={2}
+            >
+              <Grid item>
+
+                <Typography sx={{ color: "", fontWeight: "bold" }} >Test Request ID : {dc_test_info.id}</Typography>
+              
+              </Grid>
+
+            </Grid>
+          </Grid>
+
+
           <Grid item>
             <Grid
               container
@@ -122,7 +142,7 @@ export function TestDetails({ dc_test_info }: { dc_test_info: DC_Test }) {
               <Grid item>
                 <Typography sx={{ fontWeight: "bold" }}>Date </Typography>
                 <Typography>
-                
+
                   {get_Date(dc_test_info.date?.toString() as string)}
                 </Typography>
               </Grid>
@@ -145,27 +165,29 @@ export function TestDetails({ dc_test_info }: { dc_test_info: DC_Test }) {
 
                 <Typography sx={{ fontWeight: "bold" }}>Test Name</Typography>
                 <Typography>
-                {dc_test_info.dcTestList?.test?.name}
+                  {dc_test_info.dcTestList?.test?.name}
                 </Typography>
               </Grid>
 
-              
+
               <Grid item>
                 <Typography sx={{ fontWeight: "bold" }}> Diagnostic Center Name</Typography>
                 <Typography>
-                {dc_test_info.dcTestList?.dc?.name}
+                  {dc_test_info.dcTestList?.dc?.name}
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography sx={{ fontWeight: "bold" }}>  Diagnostic Center Location </Typography>
                 <Typography>
-                {dc_test_info.dcTestList?.dc?.location}
+                  {dc_test_info.dcTestList?.dc?.location}
                 </Typography>
               </Grid>
 
 
             </Grid>
           </Grid>
+
+
 
           <Grid
             container

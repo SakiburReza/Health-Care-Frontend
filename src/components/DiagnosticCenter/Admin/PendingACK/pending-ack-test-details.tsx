@@ -20,9 +20,9 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
 
     dc_test_info.status = "completed"
 
-    API.diagnosticCenter.addDCTest( dc_test_info
-   
-      ).then((response) => {
+    API.diagnosticCenter.addDCTest(dc_test_info
+
+    ).then((response) => {
       console.log(response);
       console.log("yes1.");
       navigate("/pending-ack-test-list-ui")
@@ -34,39 +34,39 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
       ...notification,
       receiver: dc_test_info.taker?.person,
       type: "Sample Collection Acknowledgement ",
-      message: "## Patient : "+dc_test_info.patient?.person?.firstName+" ## Patient's Contact :"+ dc_test_info.patient?.person?.mobileNo + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
+      message: "## Patient : " + dc_test_info.patient?.person?.firstName + " ## Patient's Contact :" + dc_test_info.patient?.person?.mobileNo + " ## To : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: dc_test_info.taker?.person,
       type: "Sample Collection Acknowledgement ",
-      message: "## Patient : "+dc_test_info.patient?.person?.firstName+" ## Patient's Contact :"+ dc_test_info.patient?.person?.mobileNo + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
+      message: "## Patient : " + dc_test_info.patient?.person?.firstName + " ## Patient's Contact :" + dc_test_info.patient?.person?.mobileNo + " ## To : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
     }).then((response) => {
       console.log(response);
     });
 
-        setNotification1({
+    setNotification1({
       ...notification1,
       receiver: dc_test_info.patient?.person,
       type: " Sample Received Acknowledgement By DC Admin ",
-      message: "## Collector : "+dc_test_info.taker?.person?.firstName+" ## Collector's Contact :"+ dc_test_info.taker?.person?.mobileNo + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
+      message: "## Collector : " + dc_test_info.taker?.person?.firstName + " ## Collector's Contact :" + dc_test_info.taker?.person?.mobileNo + " ## To : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
     });
-    API.notification.saveNotification ({
+    API.notification.saveNotification({
       ...notification1,
       receiver: dc_test_info.patient?.person,
       type: " Sample Received Acknowledgement By DC Admin",
-      message: "## Collector : "+dc_test_info.taker?.person?.firstName+" ## Collector's Contact :"+ dc_test_info.taker?.person?.mobileNo + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
+      message: "## Collector : " + dc_test_info.taker?.person?.firstName + " ## Collector's Contact :" + dc_test_info.taker?.person?.mobileNo + " ## To : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
     }).then((response) => {
       console.log(response);
     });
 
-   }; 
+  };
 
-   function get_Date(strDate:string) {
+  function get_Date(strDate: string) {
     var date = new Date(strDate);
     var day = date.getDate();
     var month = date.getMonth();
@@ -74,7 +74,7 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
 
     var str = day + "-" + month + "-" + year;
     return str;
-  }  
+  }
 
   return (
 
@@ -102,104 +102,109 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
           spacing={2}
         >
           <Grid item>
-          <Grid
-            container
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-            sx={{ padding: "10px", height: "100%" }}
-            spacing={12}
-          >
 
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-                Patient Name
-              </Typography>
-              <Typography>
-               {dc_test_info.patient?.person?.firstName + " " + dc_test_info.patient?.person?.lastName}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              Patient's Location
-              </Typography>
+            <Typography sx={{ color: "", fontWeight: "bold" }} >Test Request ID : {dc_test_info.id}</Typography>
 
-              <Typography>
-              {dc_test_info.location}
-              </Typography>
-
-            </Grid>
-
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              Date
-              </Typography>
-              <Typography>
-              {get_Date(dc_test_info.date?.toString() as string)}
-              </Typography>
-            </Grid>
-
-
-            <Grid item >
-
-            </Grid>
-
-            <Grid item>
-              <Typography></Typography>
-            </Grid>
           </Grid>
+          <Grid item>
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ padding: "10px", height: "100%" }}
+              spacing={12}
+            >
+
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Patient Name
+                </Typography>
+                <Typography>
+                  {dc_test_info.patient?.person?.firstName + " " + dc_test_info.patient?.person?.lastName}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Patient's Location
+                </Typography>
+
+                <Typography>
+                  {dc_test_info.location}
+                </Typography>
+
+              </Grid>
+
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Date
+                </Typography>
+                <Typography>
+                  {get_Date(dc_test_info.date?.toString() as string)}
+                </Typography>
+              </Grid>
+
+
+              <Grid item >
+
+              </Grid>
+
+              <Grid item>
+                <Typography></Typography>
+              </Grid>
+            </Grid>
           </Grid>
 
           <Grid item>
 
-          <Grid
-            container
-            direction="row"
-            alignItems="center"
-            justifyContent="space-between"
-            sx={{ padding: "10px", height: "100%" }}
-            spacing={11}
-          >
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ padding: "10px", height: "100%" }}
+              spacing={11}
+            >
 
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              Test Name
-              </Typography>
-              <Typography>
-              {dc_test_info.dcTestList?.test?.name}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              DC Name
-              </Typography>
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Test Name
+                </Typography>
+                <Typography>
+                  {dc_test_info.dcTestList?.test?.name}
+                </Typography>
+              </Grid>
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  DC Name
+                </Typography>
 
-              <Typography>
-               {dc_test_info.dcTestList?.dc?.name}
-              </Typography>
+                <Typography>
+                  {dc_test_info.dcTestList?.dc?.name}
+                </Typography>
 
-            </Grid>
+              </Grid>
 
-            <Grid item>
-              <Typography sx={{ fontWeight: "bold" }}>
-              Sample Collector
-              </Typography>
-              <Typography>
-               {dc_test_info.taker?.person?.firstName + " " + dc_test_info.taker?.person?.lastName}
-              </Typography>
-            </Grid>
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
+                  Sample Collector
+                </Typography>
+                <Typography>
+                  {dc_test_info.taker?.person?.firstName + " " + dc_test_info.taker?.person?.lastName}
+                </Typography>
+              </Grid>
 
 
-            <Grid item >
+              <Grid item >
 
-            </Grid>
+              </Grid>
 
-            <Grid item>
-              <Typography></Typography>
+              <Grid item>
+                <Typography></Typography>
+              </Grid>
             </Grid>
           </Grid>
-          </Grid>
-    
+
 
           <Grid
             container
@@ -209,8 +214,8 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
             sx={{ padding: "10px", height: "100%" }}
             spacing={2}
           >
-          
-          
+
+
           </Grid>
         </Grid>
       </Grid>
@@ -232,7 +237,7 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
             sx={{ padding: "10px", height: "100%" }}
             spacing={2}
           >
-           
+
 
             <Grid item>
               <Typography></Typography>
@@ -275,11 +280,11 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
                 spacing={2}
               >
                 <Grid item>
-                <Typography sx={{ fontWeight: "bold" }}></Typography>
-                 <Button  onClick={handleConfirm}  variant="contained" >
-                 Acknowledge
-                </Button>
-              </Grid>
+                  <Typography sx={{ fontWeight: "bold" }}></Typography>
+                  <Button onClick={handleConfirm} variant="contained" >
+                    Acknowledge
+                  </Button>
+                </Grid>
 
                 <Grid item>
                   <Grid item>

@@ -30,24 +30,24 @@ export function ConfirmedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
       console.log(response);
       console.log("yes.");
       navigate("/confirmed-test-list-ui")
-     
+
     });
     window.location.reload();
-    
 
-// for patient
+
+    // for patient
     setNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Sample Submitted To Diagnostic Center",
-      message: "Collected by "+ dc_test_info.taker?.person?.firstName+" ## Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+"  ##  To : "+ dc_test_info.dcTestList?.dc?.name+" ## DC Contact : "+dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##",
+      message: "Collected by " + dc_test_info.taker?.person?.firstName + " ## Taker's Contact : " + dc_test_info.taker?.person?.mobileNo + "  ##  To : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Sample Submitted To Diagnostic Center",
-      message: "Collected by "+ dc_test_info.taker?.person?.firstName+" ## Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+"  ##  To : "+ dc_test_info.dcTestList?.dc?.name+" ## DC Contact : "+dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##",
+      message: "Collected by " + dc_test_info.taker?.person?.firstName + " ## Taker's Contact : " + dc_test_info.taker?.person?.mobileNo + "  ##  To : " + dc_test_info.dcTestList?.dc?.name + " ## DC Contact : " + dc_test_info.dcTestList?.dc?.person?.mobileNo + " ##",
       status: "pending",
     }).then((response) => {
       console.log(response);
@@ -60,14 +60,14 @@ export function ConfirmedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
       ...notification1,
       receiver: dc_test_info.dcTestList?.dc?.person,
       type: "Sample Submitted To Diagnostic Center",
-      message: "Collected by "+ dc_test_info.taker?.person?.firstName+" ## Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+" ## From Patient:  "+ dc_test_info.patient?.person?.firstName+" ## Patient's Contact : "+dc_test_info.patient?.person?.mobileNo+" ##",
+      message: "Collected by " + dc_test_info.taker?.person?.firstName + " ## Taker's Contact : " + dc_test_info.taker?.person?.mobileNo + " ## From Patient:  " + dc_test_info.patient?.person?.firstName + " ## Patient's Contact : " + dc_test_info.patient?.person?.mobileNo + " ##",
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification1,
       receiver: dc_test_info.dcTestList?.dc?.person,
       type: "Sample Submitted To Diagnostic Center",
-      message: "Collected by "+ dc_test_info.taker?.person?.firstName+" ## Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+" ## From Patient:  "+ dc_test_info.patient?.person?.firstName+" ## Patient's Contact : "+dc_test_info.patient?.person?.mobileNo+" ##",
+      message: "Collected by " + dc_test_info.taker?.person?.firstName + " ## Taker's Contact : " + dc_test_info.taker?.person?.mobileNo + " ## From Patient:  " + dc_test_info.patient?.person?.firstName + " ## Patient's Contact : " + dc_test_info.patient?.person?.mobileNo + " ##",
       status: "pending",
     }).then((response) => {
       console.log(response);
@@ -75,7 +75,7 @@ export function ConfirmedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
 
   };
 
-  function get_Date(strDate:string) {
+  function get_Date(strDate: string) {
     var date = new Date(strDate);
     var day = date.getDate();
     var month = date.getMonth();
@@ -83,8 +83,8 @@ export function ConfirmedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
 
     var str = day + "-" + month + "-" + year;
     return str;
-  }  {get_Date(dc_test_info.date?.toString() as string)}
- 
+  } { get_Date(dc_test_info.date?.toString() as string) }
+
 
 
   const handleSubmit = (e) => {
@@ -120,6 +120,12 @@ export function ConfirmedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
           sx={{ padding: "10px", height: "100%" }}
           spacing={2}
         >
+
+          <Grid item>
+
+            <Typography sx={{ color: "", fontWeight: "bold" }} >Test Request ID : {dc_test_info.id}</Typography>
+
+          </Grid>
           <Grid item >
             <Grid
               container
@@ -159,47 +165,47 @@ export function ConfirmedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
             </Grid>
           </Grid>
 
-            <Grid item>
-              <Grid
-                container
-                direction="row"
-                alignItems="center"
-                justifyContent="space-between"
-                sx={{ padding: "10px", height: "100%" }}
-                spacing={7}
-              >
-                <Grid item>
-                  <Typography sx={{ fontWeight: "bold" }}>
+          <Grid item>
+            <Grid
+              container
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ padding: "10px", height: "100%" }}
+              spacing={7}
+            >
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
                   Test Name
-                  </Typography>
-                  <Typography>
+                </Typography>
+                <Typography>
                   {dc_test_info.dcTestList?.test?.name}
-                  </Typography>
-                </Grid>
+                </Typography>
+              </Grid>
 
-                <Grid item>
-                  <Typography sx={{ fontWeight: "bold" }}>
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
                   DC Name
-                  </Typography>
-                  <Typography>
+                </Typography>
+                <Typography>
                   {dc_test_info.dcTestList?.dc?.name}
-                  </Typography>
-                </Grid>
+                </Typography>
+              </Grid>
 
-                <Grid item>
-                  <Typography sx={{ fontWeight: "bold" }}>
+              <Grid item>
+                <Typography sx={{ fontWeight: "bold" }}>
                   DC Location
-                  </Typography>
-                  <Typography>
+                </Typography>
+                <Typography>
                   {dc_test_info.dcTestList?.dc?.location}
-                  </Typography>
-                </Grid>
+                </Typography>
+              </Grid>
 
-                <Grid item>
-                  <Typography></Typography>
-                </Grid>
+              <Grid item>
+                <Typography></Typography>
               </Grid>
             </Grid>
+          </Grid>
         </Grid>
       </Grid>
       {/*  //2nd Column */}

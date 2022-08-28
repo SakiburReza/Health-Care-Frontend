@@ -47,6 +47,13 @@ function get_Date(strDate:string) {
           sx={{ padding: "10px", height: "100%" }}
           spacing={5}
         >
+          
+          <Grid item>
+
+            <Typography sx={{ color: "", fontWeight: "bold" }} >Test Request ID : {dc_test_info.id}</Typography>
+
+          </Grid>
+          
           <Grid item >
             <Grid
               container
