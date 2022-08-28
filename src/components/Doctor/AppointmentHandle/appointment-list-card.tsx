@@ -16,7 +16,7 @@ import { AppointmentDetails } from "./appointment-details";
 export default function AppointmentListCard({appointment}:{appointment:Appointment}) {
   const navigate = useNavigate();
   return (
-    <Card  onClick={()=>navigate("/set-appointment-info",{state:appointment})} sx={{ width: "100%" }}>
+    <Card  onClick={()=>navigate("/set-appointment-info",{state:appointment})} sx={{backgroundColor: "#63ffb1", width: "100%" }}>
       <CardActionArea>
         <CardContent>
          <AppointmentDetails

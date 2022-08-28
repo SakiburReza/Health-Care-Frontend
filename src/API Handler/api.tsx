@@ -15,7 +15,7 @@ import {
   DCTestList,
 } from "Classes/entity-class";
 
-const HOST = "http://localhost:5051";
+const HOST = "http://localhost:5052";
 
 function post(url, body = {}, param = {}) {
   return axios.post(HOST + url, body);

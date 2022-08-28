@@ -26,25 +26,13 @@ export function RequestedAppointmentListUI() {
   return (
     
    <DoctorLayout>
-
-  
-    <Grid
-      container
-      direction="column"
-      alignItems="center"
-      justifyContent="space-between"
-      sx={{ backgroundColor: "yellow", padding: "10px", height: "100%" }}
-      spacing={2}
-    >
- 
-  
       <Grid item>
         <Grid
           container
           direction="column"
           alignItems="center"
           justifyContent="space-between"
-          sx={{ backgroundColor: "blue", padding: "10px", height: "100%" }}
+          sx={{  padding: "10px", height: "100%" }}
           spacing={5}
         >
           {appointment?.map((appt, idx) => (
@@ -58,7 +46,6 @@ export function RequestedAppointmentListUI() {
           ))}
         </Grid>
       </Grid>
-    </Grid>
     </DoctorLayout>
 
 

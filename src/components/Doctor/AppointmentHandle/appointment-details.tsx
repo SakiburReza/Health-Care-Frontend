@@ -149,7 +149,7 @@ export function AppointmentDetails({
                   <Typography sx={{ fontWeight: "bold" }}>Height</Typography>
                 </Grid>
                 <Grid item>
-                  <Typography>{patient?.height}</Typography>
+                  <Typography>{patient?.height?.toString()}</Typography>
                 </Grid>
               </Grid>
             </Grid>

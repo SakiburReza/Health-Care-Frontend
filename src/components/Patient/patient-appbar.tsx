@@ -56,7 +56,7 @@ export default function PatientAppbar() {
         <Grid item>
           <Grid container direction="column">
             <Grid item>
-              <img src={require("../../images/heaa.jpg")} height="40px" />
+              <img onClick={()=>navigate("/patient-home-page")} src={require("../../images/heaa.jpg")} height="40px" />
             </Grid>
             <Grid item>
               <Typography color={"red"} fontSize={"6"}>
@@ -75,7 +75,7 @@ export default function PatientAppbar() {
           >
           
             <Grid item>
-              <Button>Profile</Button>
+              <Button >Profile</Button>
             </Grid>
             <Grid item>
               <ShowNotification id = {patient_id as number} />

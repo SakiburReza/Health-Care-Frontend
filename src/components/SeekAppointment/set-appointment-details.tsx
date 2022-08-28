@@ -17,7 +17,6 @@ export default function SetAppointmentDetails({appointment,onChange}:{appointmen
     API.patient.getPatientById(id as number).then(response=>{
       setPatient(response.data)
       console.log(response.data)
-      console.log("Check")
     })
   }, [])
 
@@ -36,7 +35,6 @@ export default function SetAppointmentDetails({appointment,onChange}:{appointmen
             fullWidth
             autoComplete="given-name"
             variant="standard"
-            disabled
             value={
               (JSON.parse(localStorage.getItem("Patient") || "") as Patient)
                 ?.person?.firstName
@@ -52,7 +50,6 @@ export default function SetAppointmentDetails({appointment,onChange}:{appointmen
             fullWidth
             autoComplete="family-name"
             variant="standard"
-            disabled
             value={
               (JSON.parse(localStorage.getItem("Patient") || "") as Patient)
                 ?.person?.lastName
@@ -64,8 +61,6 @@ export default function SetAppointmentDetails({appointment,onChange}:{appointmen
 
         <Grid item xs={12}>
           <TextField
-            id="address2"
-            name="address2"
             label="Briefly explain the problem"
             fullWidth
             autoComplete="shipping address-line2"
@@ -75,56 +70,33 @@ export default function SetAppointmentDetails({appointment,onChange}:{appointmen
                 ...appointment,
                 problem:e.target.value
               })
+              
             }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="city"
-            name="city"
             label="Weight (kg)"
             fullWidth
             autoComplete="weight"
             variant="standard"
-            value =  {patient?.weight}
-            onChange={(e)=>{
-              onChange({
-                ...appointment,
-                patient:{
-                  ...appointment?.patient,
-                  weight : parseInt((e.target.value)),
-                }
-              })
-            }}
+            value = {patient?.weight}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="state"
-            name="state"
             label="Height (cm)"
             fullWidth
             autoComplete="height"
             variant="standard"
             value = {patient?.height}
-            onChange={(e)=>{
-              onChange({
-                ...appointment,
-                patient:{
-                  ...appointment?.patient,
-                  height : parseInt((e.target.value)),
-                }
-              })
-            }}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="zip"
-            name="zip"
             label="Mobile No."
             fullWidth
             autoComplete="mobileNo"
@@ -138,8 +110,6 @@ export default function SetAppointmentDetails({appointment,onChange}:{appointmen
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="country"
-            name="country"
             label="Email"
             fullWidth
             autoComplete="email"
