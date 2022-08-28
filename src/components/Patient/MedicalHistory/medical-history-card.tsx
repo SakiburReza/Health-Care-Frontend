@@ -19,7 +19,7 @@ export default function MedicalHistoryCard({problem,date,doctor,gp} : {problem:s
   return (
     <Card
     onClick={() =>  navigate("/prescription-page-patient-side", { state: gp })}
-    sx={{ width: "300%", height : "100%" }} 
+    sx={{backgroundColor: "#8ab2f7", width: "300px", height : "100px" }} 
   >
     <CardActionArea>
       

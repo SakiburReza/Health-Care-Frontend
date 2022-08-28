@@ -111,8 +111,6 @@ export default function SignInSide() {
                       ...doc,
                       person: response.data,
                       id: response.data?.id,
-                      experience: response.data?.experience,
-                      degree: response.data?.degree
                     })
                   );
                   navigate("/doctor-home-page");
@@ -206,7 +204,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: "url(" + require("./images/heaa.jpg") + "'",
+            backgroundImage: "url(" + require("./images/hms.jpg") + ")",
             //backgroundImage: require("./images/doctor.jpg"),
             backgroundRepeat: "no-repeat",
             backgroundColor: (t) =>

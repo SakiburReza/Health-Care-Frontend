@@ -26,13 +26,12 @@ import React, { useState, useEffect } from "react";
 import ChooseDuration from "./choose-duration";
 import { API } from "API Handler/api";
 import { GeneratePrescription, showSnackbar } from "Classes/helper-class";
-//import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-//import ReactPDF from "@react-pdf/renderer";
 
 export default function SetPrescriptionInfo() {
   const navigate = useNavigate();
   const { state } = useLocation();
   const [appointment, setAppointment] = React.useState<Appointment>();
+  const [doc, setDoctor] = React.useState<Doctor>();
   const [prescription, setPrescription] = React.useState<Prescription>(
     new Prescription()
   );
@@ -43,10 +42,12 @@ export default function SetPrescriptionInfo() {
   const [testPresArray, setTestPresArray] = React.useState<Test_Prescription[]>(
     []
   );
-
+  let generatePrescription: GeneratePrescription = new GeneratePrescription();
+  let doctor_id = (JSON.parse(
+    localStorage.getItem("Doctor") || ""
+  ) as Doctor).id as number
   function handleAddMedicine() {
     setMedPres({ ...med_pres, prescription: prescription });
-
     setMedPresArray([
       ...medPresArray,
       { ...med_pres, prescription: prescription },
@@ -89,21 +90,20 @@ export default function SetPrescriptionInfo() {
         prescription: prescription,
       })
       .then((response) => {});
-
-    console.log("pres_aoot;: ", appointment);
-    let generatePrescription: GeneratePrescription = new GeneratePrescription();
+    
     generatePrescription.patient = JSON.parse(
       localStorage.getItem("Patient") || ""
     ) as Patient;
-    generatePrescription.doctor = JSON.parse(
-      localStorage.getItem("Doctor") || ""
-    ) as Doctor;
+    
+
     generatePrescription.medPresArray = medPresArray;
     generatePrescription.testPresArray = testPresArray;
+    generatePrescription.doctor = doc as Doctor;
     
     API.appointment.updateStatus({...appointment,status:"closed"}).then(response=>{})
-
+   
     navigate("/prescription-page", { state: generatePrescription });
+    
   }
 
   useEffect(() => {
@@ -125,14 +125,11 @@ export default function SetPrescriptionInfo() {
         });
       });
 
-    /*  localStorage.setItem(
-      "Prescription",
-      JSON.stringify({
-        ...prescription,
-        problem: appointment.problem,
-        appointment: appointment,
+      API.doctor.getDoctorById(doctor_id).then(response=>{
+        //generatePrescription.doctor = response.data;
+        setDoctor(response.data)
+       
       })
-    ); */
   }, [state]);
 
   return (
