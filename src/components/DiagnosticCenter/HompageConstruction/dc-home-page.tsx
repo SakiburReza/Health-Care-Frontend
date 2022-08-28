@@ -25,7 +25,7 @@ const DCHomePage = () => {
     {/* <FixedBottomNavigation/> */}
     <img
                     src={require("./images/sample.jpg")}
-                    height="900px" />
+                   width = "2000px" height="1000px" />
     </>
   );
 };

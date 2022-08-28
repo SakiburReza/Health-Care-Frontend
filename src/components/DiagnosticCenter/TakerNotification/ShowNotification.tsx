@@ -17,7 +17,7 @@ export default function ShowNotification({id}:{id:number}) {
         setNum(response.data.length)
         console.log("L : ",response.data.length)
     })
-  }, []);
+  }, [open]);
   function showNotification(){
      setOpen(true);
   

@@ -2,11 +2,13 @@ import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import { Grid, Typography, Rating, Stack, Button, IconButton } from "@mui/material";
 import { API } from "API Handler/api";
 import { DC_Test, DiagnosticCenter, Taker } from "Classes/entity-class";
+import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export function DCDetails({ dc_info }: { dc_info: DiagnosticCenter }) {
   const navigate = useNavigate();
+  const [value, setValue] = React.useState<number | null>(4);
 
   //  const handleComplete = (e) => {
   //   e.preventDefault();
@@ -78,7 +80,7 @@ export function DCDetails({ dc_info }: { dc_info: DiagnosticCenter }) {
       <Grid item>
       <Typography sx={{ fontWeight: "bold" }} > Rating </Typography>
             <Typography>
-             4.4 
+            <Rating name="read-only" value={value} readOnly />
             </Typography>
         
       </Grid>

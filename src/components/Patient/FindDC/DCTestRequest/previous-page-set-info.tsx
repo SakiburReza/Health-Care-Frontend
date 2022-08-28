@@ -18,6 +18,7 @@ import {
   export default function PreviousPageSetInfo() {
     const navigate = useNavigate();
     const {state} = useLocation();
+
     
 
     const [dc_test_list,setDCTestList] = React.useState<DCTestList>(state as DCTestList);

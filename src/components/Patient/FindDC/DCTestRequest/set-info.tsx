@@ -19,6 +19,7 @@ export default function SetInfo({ dc_test_list }: { dc_test_list: DCTestList }) 
   // const {state} = useLocation();
   // const [dc_test_list,setDCTestList] = React.useState<DCTestList>(new DCTestList());
   const [dc_test, setDCTest] = React.useState<DC_Test>();
+  const [value, setValue] = React.useState<number | null>(4);
 
   // dc_test_list class object = one row
   console.log("SetInfo: passed : dc_test_list : ")
@@ -238,7 +239,7 @@ export default function SetInfo({ dc_test_list }: { dc_test_list: DCTestList }) 
                     <Grid item>
                       <Typography sx={{ fontWeight: "bold" }} >Rating </Typography>
                       <Typography >
-                       4.4
+                      <Rating name="read-only" value={value} readOnly />
                       </Typography>
 
                     </Grid>

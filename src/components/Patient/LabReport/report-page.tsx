@@ -1,4 +1,4 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Grid, Rating, Typography } from "@mui/material";
 import Header from "components/header";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import DCAdminPageAppbar from "components/DiagnosticCenter/HompageConstruction/admin-page-appbar";
@@ -15,6 +15,7 @@ export default function ReportPage() {
     const { state } = useLocation();
     const navigate = useNavigate();
     const [dc_test_info, setDCTestInfo] = React.useState<DC_Test>(state as DC_Test);
+    const [value, setValue] = React.useState<number | null>(2);
 
     const id = (JSON.parse(localStorage.getItem("Patient") || "") as Patient).id || undefined;
     console.log("patient id ")
@@ -24,8 +25,7 @@ export default function ReportPage() {
         setDCTestInfo(state as DC_Test);
     }, []);
 
-    function handleBack ()
-    {
+    function handleBack() {
         navigate("/lab-report-list-ui")
     }
 
@@ -38,24 +38,39 @@ export default function ReportPage() {
                 direction="column"
                 alignItems="center"
                 justifyContent="space-between"
-                sx={{ backgroundColor: "yellow", padding: "10px", height: "2000%" }}
+                sx={{ backgroundColor: "white", padding: "10px", height: "2000%" }}
                 spacing={2}
             >
                 <Grid item >
 
                     <Typography sx={{ fontWeight: "bold" }} > Report </Typography>
                     <img src={dc_test_info.report} height="500px" />
-                    
+
                     <object data={dc_test_info.report} type="application/pdf" width="1000" height="1000" >
-                        
+
                     </object>
 
                 </Grid>
 
                 <Grid item >
 
-                <Button onClick={() => navigate("/lab-report-list-ui")} variant="contained" component="label">
-                      BACK
+                    <Typography component="legend">Send Rating</Typography>
+                    <Rating
+                        name="simple-controlled"
+                        value={value}
+                        onChange={(event, newValue) => {
+                            setValue(newValue);
+                        }}
+                    />
+
+
+                </Grid>
+
+
+                <Grid item >
+
+                    <Button onClick={() => navigate("/lab-report-list-ui")} variant="contained" component="label">
+                        BACK
                     </Button>
                 </Grid>
             </Grid>

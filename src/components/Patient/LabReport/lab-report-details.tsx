@@ -100,7 +100,7 @@ export  function LabReportDetails({dc_test_info}:{dc_test_info:DC_Test}) {
               </Grid>
 
             <Grid item >
-              <Typography sx={{ fontWeight: "bold" }} > View Report </Typography>
+              <Typography sx={{ fontWeight: "bold" }} > Click Here </Typography>
             </Grid>
     
         </Grid>    

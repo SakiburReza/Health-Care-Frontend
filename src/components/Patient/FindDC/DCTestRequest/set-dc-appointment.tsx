@@ -87,6 +87,8 @@ export default function SetDCAppointment() {
           id: response.data.id,
         });
       });
+
+      
       // API.patient.updatePatientByHeightWeight(_appointment.patient as Patient)
     }
   };
