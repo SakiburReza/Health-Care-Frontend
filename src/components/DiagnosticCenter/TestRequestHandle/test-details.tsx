@@ -49,19 +49,20 @@ export function TestDetails({ dc_test_info }: { dc_test_info: DC_Test }) {
       console.log("api te ki cilo dc_test_info: " + dc_test_info)
       navigate("/requested-test-list-ui")
     });
+    window.location.reload();
 
     setNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Remote DC Test is confirmed ",
-      message: "Confirmed By : "+taker_name+"( Taker's Contact :"+ taker_mobile + " ) To : "+ dc_test_info.dcTestList?.dc?.name + " ( DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" )" ,
+      message: "Confirmed By : "+taker_name+" ## Taker's Contact :"+ taker_mobile + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Remote DC Test is confirmed ",
-      message: "Confirmed By : "+taker_name+"( Taker's Contact :"+ taker_mobile + " ) To : "+ dc_test_info.dcTestList?.dc?.name + " ( DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" )" ,
+      message: "Confirmed By : "+taker_name+" ## Taker's Contact :"+ taker_mobile + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
       status: "pending",
     }).then((response) => {
       console.log(response);

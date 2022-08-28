@@ -32,20 +32,22 @@ export function ConfirmedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
       navigate("/confirmed-test-list-ui")
      
     });
+    window.location.reload();
+    
 
 // for patient
     setNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Sample Submitted To Diagnostic Center",
-      message: "Collected by "+ dc_test_info.taker?.person?.firstName+"( Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+" ). To : "+ dc_test_info.dcTestList?.dc?.name+"( DC Contact : "+dc_test_info.dcTestList?.dc?.person?.mobileNo+" )",
+      message: "Collected by "+ dc_test_info.taker?.person?.firstName+" ## Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+"  ##  To : "+ dc_test_info.dcTestList?.dc?.name+" ## DC Contact : "+dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##",
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Sample Submitted To Diagnostic Center",
-      message: "Collected by "+ dc_test_info.taker?.person?.firstName+"( Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+" ). To : "+ dc_test_info.dcTestList?.dc?.name+"( DC Contact : "+dc_test_info.dcTestList?.dc?.person?.mobileNo+" )",
+      message: "Collected by "+ dc_test_info.taker?.person?.firstName+" ## Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+"  ##  To : "+ dc_test_info.dcTestList?.dc?.name+" ## DC Contact : "+dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##",
       status: "pending",
     }).then((response) => {
       console.log(response);
@@ -58,14 +60,14 @@ export function ConfirmedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
       ...notification1,
       receiver: dc_test_info.dcTestList?.dc?.person,
       type: "Sample Submitted To Diagnostic Center",
-      message: "Collected by "+ dc_test_info.taker?.person?.firstName+"( Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+" ). From Patient:  "+ dc_test_info.patient?.person?.firstName+"( Patient's Contact : "+dc_test_info.patient?.person?.mobileNo+" )",
+      message: "Collected by "+ dc_test_info.taker?.person?.firstName+" ## Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+" ## From Patient:  "+ dc_test_info.patient?.person?.firstName+" ## Patient's Contact : "+dc_test_info.patient?.person?.mobileNo+" ##",
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification1,
       receiver: dc_test_info.dcTestList?.dc?.person,
       type: "Sample Submitted To Diagnostic Center",
-      message: "Collected by "+ dc_test_info.taker?.person?.firstName+"( Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+" ). From Patient:  "+ dc_test_info.patient?.person?.firstName+"( Patient's Contact : "+dc_test_info.patient?.person?.mobileNo+" )",
+      message: "Collected by "+ dc_test_info.taker?.person?.firstName+" ## Taker's Contact : "+dc_test_info.taker?.person?.mobileNo+" ## From Patient:  "+ dc_test_info.patient?.person?.firstName+" ## Patient's Contact : "+dc_test_info.patient?.person?.mobileNo+" ##",
       status: "pending",
     }).then((response) => {
       console.log(response);

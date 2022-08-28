@@ -27,20 +27,21 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
       console.log("yes1.");
       navigate("/pending-ack-test-list-ui")
     });
+    window.location.reload();
 
 
     setNotification({
       ...notification,
       receiver: dc_test_info.taker?.person,
       type: "Sample Collection Acknowledgement ",
-      message: "Patient : "+dc_test_info.patient?.person?.firstName+"( Patient's Contact :"+ dc_test_info.patient?.person?.mobileNo + " ) .\nTo : "+ dc_test_info.dcTestList?.dc?.name + " ( DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" )" ,
+      message: "## Patient : "+dc_test_info.patient?.person?.firstName+" ## Patient's Contact :"+ dc_test_info.patient?.person?.mobileNo + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: dc_test_info.taker?.person,
       type: "Sample Collection Acknowledgement ",
-      message: "( Patient's Contact :"+ dc_test_info.patient?.person?.mobileNo + "To : "+ dc_test_info.dcTestList?.dc?.name + " ( DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" )" ,
+      message: "## Patient : "+dc_test_info.patient?.person?.firstName+" ## Patient's Contact :"+ dc_test_info.patient?.person?.mobileNo + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
       status: "pending",
     }).then((response) => {
       console.log(response);
@@ -49,15 +50,15 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
         setNotification1({
       ...notification1,
       receiver: dc_test_info.patient?.person,
-      type: " DC Received Sample For Test ",
-      message: "Patient : "+dc_test_info.patient?.person?.firstName+"( Patient's Contact :"+ dc_test_info.patient?.person?.mobileNo + " ) .\nTo : "+ dc_test_info.dcTestList?.dc?.name + " ( DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" )" ,
+      type: " Sample Received Acknowledgement By DC Admin ",
+      message: "## Collector : "+dc_test_info.taker?.person?.firstName+" ## Collector's Contact :"+ dc_test_info.taker?.person?.mobileNo + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
       status: "pending",
     });
     API.notification.saveNotification ({
       ...notification1,
       receiver: dc_test_info.patient?.person,
-      type: " DC Received Sample For Test",
-      message: "Patient : "+dc_test_info.patient?.person?.firstName+"( Patient's Contact :"+ dc_test_info.patient?.person?.mobileNo + " ) .\nTo : "+ dc_test_info.dcTestList?.dc?.name + " ( DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" )" ,
+      type: " Sample Received Acknowledgement By DC Admin",
+      message: "## Collector : "+dc_test_info.taker?.person?.firstName+" ## Collector's Contact :"+ dc_test_info.taker?.person?.mobileNo + " ## To : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
       status: "pending",
     }).then((response) => {
       console.log(response);
@@ -157,7 +158,7 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
             alignItems="center"
             justifyContent="space-between"
             sx={{ padding: "10px", height: "100%" }}
-            spacing={12}
+            spacing={11}
           >
 
             <Grid item>
@@ -181,10 +182,10 @@ export default function PendingACKTestDetails({ dc_test_info }: { dc_test_info: 
 
             <Grid item>
               <Typography sx={{ fontWeight: "bold" }}>
-              DC Location
+              Sample Collector
               </Typography>
               <Typography>
-               {dc_test_info.dcTestList?.dc?.location}
+               {dc_test_info.taker?.person?.firstName + " " + dc_test_info.taker?.person?.lastName}
               </Typography>
             </Grid>
 

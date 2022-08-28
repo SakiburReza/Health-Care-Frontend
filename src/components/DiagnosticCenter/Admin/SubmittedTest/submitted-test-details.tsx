@@ -25,18 +25,20 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
       navigate("/submitted-test-list-ui")
     });
 
+    window.location.reload();
+
     setNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Test Report Uploaded",
-      message:  " DC : "+ dc_test_info.dcTestList?.dc?.name + " ( DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" )" ,
+      message:  "##  DC : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: dc_test_info.patient?.person,
       type: "Test Report Uploaded",
-      message:  " DC : "+ dc_test_info.dcTestList?.dc?.name + " ( DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" )" ,
+      message:  "##  DC : "+ dc_test_info.dcTestList?.dc?.name + " ## DC Contact : "+ dc_test_info.dcTestList?.dc?.person?.mobileNo+" ##" ,
       status: "pending",
       
     }).then((response) => {
@@ -160,7 +162,7 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
             alignItems="center"
             justifyContent="space-between"
             sx={{ padding: "10px", height: "100%" }}
-            spacing={12}
+            spacing={11}
           >
 
             <Grid item>
@@ -184,10 +186,10 @@ export function SubmittedTestDetails({ dc_test_info }: { dc_test_info: DC_Test }
 
             <Grid item>
               <Typography sx={{ fontWeight: "bold" }}>
-              DC Location
+              Sample Collector
               </Typography>
               <Typography>
-               {dc_test_info.dcTestList?.dc?.location}
+              {dc_test_info.taker?.person?.firstName + " " + dc_test_info.taker?.person?.lastName}
               </Typography>
             </Grid>
 
