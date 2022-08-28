@@ -176,7 +176,7 @@ export function DoctorDetails_Get_Appointment({ doctor }: { doctor: Doctor }) {
             spacing={2}
           >
             <Grid item>
-              <Typography>Fee: 500</Typography>
+              <Typography>Fee: {doctor?.fee}</Typography>
             </Grid>
             <Grid item>
               <DatePicker

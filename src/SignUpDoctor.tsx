@@ -88,7 +88,11 @@ export default function SignUpDoctor() {
         localStorage.setItem(
           "Doctor",
           JSON.stringify({
-           doctor
+            ...doctor,
+            person: response.data?.person,
+            id: response.data?.id,
+            experience: response.data?.experience,
+            degree: response.data?.degree
           })
         );
         navigate("/doctor-home-page")

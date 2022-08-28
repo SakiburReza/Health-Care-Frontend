@@ -16,7 +16,7 @@ import { DoctorDetails } from "./doctor-details";
 export default function DoctorDetailsCard({ doctor } :{doctor:Doctor}) {
   const navigate = useNavigate();
   return (
-    <Card  onClick={()=>navigate("/doctor-info",{state:doctor})} sx={{ width: "100%" }}>
+    <Card  onClick={()=>navigate("/doctor-info",{state:doctor})} sx={{backgroundColor: "#8ab2f7", width: "100%" }}>
       <CardActionArea>
         <CardContent>
          <DoctorDetails 

@@ -16,7 +16,7 @@ import  ApprovedAppointmentDetails from "./approved-appointment-details";
 export default function ApprovedAppointmentListCard({appointment}:{appointment:Appointment}) {
   const navigate = useNavigate();
   return (
-    <Card  onClick={()=>navigate("/selection-approved-appointment",{state:appointment})} sx={{ width: "100%" }}>
+    <Card  onClick={()=>navigate("/selection-approved-appointment",{state:appointment})} sx={{backgroundColor: "#63ffb1", width: "100%" }}>
       <CardActionArea>
         <CardContent>
          <ApprovedAppointmentDetails 

@@ -40,8 +40,7 @@ export default function ApprovedAppointmentDetails ({
     var str = day + "-" + month + "-" + year;
     return str;
   }
-  //{getAge((patient?.person?.dateOfBirth && patient?.person?.dateOfBirth).toString() as string) }
-
+  
   return (
     <Grid
       container

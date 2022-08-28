@@ -32,7 +32,7 @@ export function DoctorListUI() {
           direction="column"
           alignItems="center"
           justifyContent="space-between"
-          sx={{ backgroundColor: "blue", padding: "10px", height: "100%" }}
+          sx={{  height: "100%" }}
           spacing={5}
         >
           {doctor?.map((doc, idx) => (
