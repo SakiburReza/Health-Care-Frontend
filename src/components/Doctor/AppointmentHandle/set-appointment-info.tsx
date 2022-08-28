@@ -40,14 +40,14 @@ export function SetAppointmentInfo() {
       ...notification,
       receiver: appointment?.patient?.person,
       type: "Appointment Confirmation",
-      message: "Your appointment is approved by Dr. "+appointment.doctor?.person?.firstName + " (Contact No. "+ appointment.doctor?.person?.mobileNo+" )",
+      message: "Your appointment is approved by Dr. "+appointment.doctor?.person?.firstName + " ## Contact No. "+ appointment.doctor?.person?.mobileNo+" ##",
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: appointment?.patient?.person,
       type: "Appointment Confirmation",
-      message: "Your appointment is approved by Dr. "+appointment.doctor?.person?.firstName + " (Contact No. "+ appointment.doctor?.person?.mobileNo+" )",
+      message: "Your appointment is approved by Dr. "+appointment.doctor?.person?.firstName + " ## Contact No. "+ appointment.doctor?.person?.mobileNo+" ##",
       status: "pending",
     }).then((response) => {
       console.log(response);
@@ -69,14 +69,14 @@ export function SetAppointmentInfo() {
       ...notification,
       receiver: appointment?.patient?.person,
       type: "Appointment Rejection",
-      message: "Your appointment is rejected by Dr. "+appointment.doctor?.person?.firstName + " (Contact No. "+ appointment.doctor?.person?.mobileNo+" )",
+      message: "Your appointment is rejected by Dr. "+appointment.doctor?.person?.firstName + " ## Contact No. "+ appointment.doctor?.person?.mobileNo+" ##",
       status: "pending",
     });
     API.notification.saveNotification({
       ...notification,
       receiver: appointment?.patient?.person,
       type: "Appointment Rejection",
-      message: "Your appointment is rejected by Dr. "+appointment.doctor?.person?.firstName + " (Contact No. "+ appointment.doctor?.person?.mobileNo+" )",
+      message: "Your appointment is rejected by Dr. "+appointment.doctor?.person?.firstName + " ## Contact No. "+ appointment.doctor?.person?.mobileNo+" ##",
       status: "pending",
     }).then((response) => {
       console.log("Reject: ",response);

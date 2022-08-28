@@ -38,7 +38,7 @@ export default function ReportPage() {
                 direction="column"
                 alignItems="center"
                 justifyContent="space-between"
-                sx={{ backgroundColor: "white", padding: "10px", height: "2000%" }}
+                sx={{ backgroundColor: "white", padding: "80px", height: "2000%" }}
                 spacing={2}
             >
                 <Grid item >
@@ -78,4 +78,6 @@ export default function ReportPage() {
         </>
 
     );
+
 }
+
