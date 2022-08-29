@@ -81,7 +81,7 @@ export default function SetAppointmentDetails({appointment,onChange}:{appointmen
             fullWidth
             autoComplete="weight"
             variant="standard"
-            value = {80} //{patient?.weight}
+            value = {patient?.weight}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -91,7 +91,7 @@ export default function SetAppointmentDetails({appointment,onChange}:{appointmen
             fullWidth
             autoComplete="height"
             variant="standard"
-            value = {160} //{patient?.height}
+            value =  {patient?.height}
           />
         </Grid>
         <Grid item xs={12} sm={6}>

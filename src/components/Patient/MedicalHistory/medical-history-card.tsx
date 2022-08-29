@@ -16,6 +16,8 @@ function get_Date(strDate:string) {
 }
 export default function MedicalHistoryCard({problem,date,doctor,gp} : {problem:string,date:Date,doctor:Doctor,gp:GeneratePrescription}) {
     const navigate = useNavigate();
+    console.log("doc:",doctor)
+    console.log("gp:",gp.doctor)
   return (
     <Card
     onClick={() =>  navigate("/prescription-page-patient-side", { state: gp })}
